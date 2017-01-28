@@ -3,6 +3,8 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.datasets import fetch_20newsgroups
 import numpy as np
+import sys
+import json
 
 def enter_to_space(s):
 	if s == '\n':
@@ -44,6 +46,10 @@ for name in newsgroups_train.data[:698]:
 
 v = TfidfVectorizer('content');
 r = v.fit_transform(res);
+# with open('vocab.txt', "w") as f:
+# 	f.write(json.dumps(v.vocabulary_));
+# sys.exit()
+
 # print r
 answer = r.toarray()
 new_array_1 = np.array(map(lambda _: [1], range(answer.shape[0] / 2)));
@@ -63,22 +69,32 @@ top = answer[:141];
 bot = answer[-141:];
 
 answer = answer[141:-142];
-
-# print top.shape, bot.shape, answer.shape
+test = np.r_[top, bot];
+print top.shape, bot.shape, answer.shape
+np.savetxt('min_test.txt',test,delimiter=',',fmt='%s')
+np.savetxt('min_training.txt',answer,delimiter=',',fmt='%s')
+print test.shape
+# print test[0]
+# print len(test[0]), len(test[1])
 # print top[:10], bot[:10]
 # np.savetxt('YES_VALS.txt', answer, delimiter = ',')
 # with open('min_test.txt', "w") as f:
 # 	test = np.r_[top, bot];
 # 	for row in test:
 # 		new_row = map(lambda x: '' if x == 0 else x, row);
+# 		print len(new_row)
 # 		new_row = reduce(lambda x, y: str(x) + ',' + str(y), new_row);
-# 		f.write("%s\n" % new_row);
+# 		print new_row.count(',')
+# 		# f.write("%s\n" % new_row);
+# 		break
 
-with open('min_training.txt', "w") as f:
-	for row in answer:
-		new_row = map(lambda x: '' if x == 0 else x, row);
-		new_row = reduce(lambda x, y: str(x) + ',' + str(y), new_row);
-		f.write("%s\n" % new_row);
+# with open('min_training.txt', "w") as f:
+# 	for row in answer:
+# 		new_row = map(lambda x: '' if x == 0 else x, row);
+# 		print len(new_row)
+# 		new_row = reduce(lambda x, y: str(x) + ',' + str(y), new_row);
+# 		print new_row.count(',')
+		# f.write("%s\n" % new_row);
 # np.savetxt('training.txt', answer, delimiter = ',')
 # np.savetxt('test.txt', test, delimiter = ',')
 
