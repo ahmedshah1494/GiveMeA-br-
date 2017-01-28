@@ -1,0 +1,22 @@
+{% block bodyContent%}
+<form action="{% url 'upload' %}" method='post' enctype='multipart/form-data'>
+  <table align='center'>
+  {% for field in form.visible_fields %}
+  <tr>
+    <td>{{field.label_tag}}</td>
+    <td>{{field}}</td>
+    <td style="color: red">{{field.errors}}</td>
+  </tr>
+  {% endfor %}
+  </table>
+  {% for field in form.hidden_fields %}
+  {{field}}
+  {% endfor %}
+  {% csrf_token %}
+      <input type="submit" value="upload" class='button' id='uploadButton'>
+  {% csrf_token %}
+</form>
+<h1>
+  {{ result }}
+</h1>
+{% endblock %}
