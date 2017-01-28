@@ -46,8 +46,8 @@ for name in newsgroups_train.data[:698]:
 
 v = TfidfVectorizer('content');
 r = v.fit_transform(res);
-# with open('vocab.txt', "w") as f:
-# 	f.write(json.dumps(v.vocabulary_));
+with open('vocab.txt', "w") as f:
+	f.write(json.dumps(v.vocabulary_));
 # sys.exit()
 
 # print r

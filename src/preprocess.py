@@ -18,6 +18,7 @@ def enter_to_space(s):
 stops = stopwords.words('english');
 
 files_to_clean = os.listdir('../articles_for_processing/');
+files_to_clean = filter(lambda x: '.txt' in x, files_to_clean);
 res = []
 with open('vocab.txt') as f:
 	vocabulary = json.loads(f.read());
