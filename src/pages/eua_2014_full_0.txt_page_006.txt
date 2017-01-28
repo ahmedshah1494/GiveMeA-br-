@@ -1,0 +1,43 @@
+
+SUMMARY
+
+Profiled countries with reports of attacks
+on education and military use of schools
+and universities, 2009-2012
+Very heavily affected
+Countries where reports documented
+1,000 or more attacks on schools,
+universities, staff and students or
+1,000 or more students, teachers or
+other education personnel attacked or
+education buildings attacked or used
+for military purposes.
+
+Heavily affected
+Countries where reports documented
+between 500 and 999 attacks on schools,
+universities, staff and students or
+between 500 and 999 students, teachers
+or other education personnel attacked or
+education buildings attacked or used for
+military purposes.
+
+Other affected
+Countries where reports documented
+less than 500 attacks on schools,
+universities, staff and students or less
+than 500 students, teachers or other
+education personnel attacked or
+education buildings attacked or used for
+military purposes.
+
+Israel/Palestine
+Libya
+Mali
+Mexico
+
+Côte d’Ivoire
+Nigeria
+Central African Republic
+Colombia
+
