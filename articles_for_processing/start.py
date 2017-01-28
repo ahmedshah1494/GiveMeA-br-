@@ -55,19 +55,20 @@ for i in range (0,len(fixed_articles_array)):
 
 
 ################For creating a new file#####################
-# opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())
-# response = opener.open("http://www.nytimes.com/2016/06/12/world/asia/china-higher-education-for-the-poor-protests.html")
-# #soup = BeautifulSoup(response, "html.parser")
-# #print response.read()
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())
+response = opener.open("https://www.nytimes.com/live/developing-gunmen-attack-university-in-pakistan/")
+#soup = BeautifulSoup(response, "html.parser")
+#print response.read()
 
 
-# soup = BeautifulSoup(response.read(),"lxml")
+soup = BeautifulSoup(response.read(),"lxml")
 
-# all_text = soup.find_all('p')
-# new_file = open("file_china_education.txt",'w')
-# new_file.write(str(all_text))
-# new_file.close()
-# print "Done creating new file"
+all_text = soup.find_all('p')
+name = str("file_pakistan_attack.txt")
+new_file = open(name,'w')
+new_file.write(str(all_text))
+new_file.close()
+print "Done creating new file " + name
 ################For creating a new file#####################
 
 
