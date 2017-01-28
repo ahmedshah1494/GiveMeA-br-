@@ -3,7 +3,6 @@ from nltk.corpus import stopwords
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.datasets import fetch_20newsgroups
 import numpy as np
-<<<<<<< HEAD
 import sys
 import json
 
