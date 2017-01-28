@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 import re
 
+
 def striphtml(data):
     p = re.compile(r"<\/?\w+((\s+\w+(\s*=\s*(?:\".*?\"|'.*?'|[\^'\">\s]+))?)+\s*|\s*)\/?>")
     return p.sub('', data)

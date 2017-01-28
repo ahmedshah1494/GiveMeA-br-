@@ -5,6 +5,12 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 import numpy as np
 import re
 import time
+import urllib2
+import csv
+import requests
+from bs4 import BeautifulSoup
+import lxml
+import lxml.etree
 
 def retrieve(url):
 	opener = urllib2.build_opener(urllib2.HTTPCookieProcessor())
@@ -16,7 +22,7 @@ def retrieve(url):
 	soup = BeautifulSoup(response.read(),"lxml")
 
 	all_text = soup.find_all('p')
-	return all_text
+	return str(all_text)
 
 def striphtml(data):
     p = re.compile(r"<\/?\w+((\s+\w+(\s*=\s*(?:\".*?\"|'.*?'|[\^'\">\s]+))?)+\s*|\s*)\/?>")
@@ -47,4 +53,6 @@ def vectorize(text):
 
 
 def retrieve_and_vectorize(url):
-	vectorize(clean(retrieve()));
+	vectorize(clean(retrieve(url)));
+
+retrieve_and_vectorize('https://www.nytimes.com/2017/01/27/opinion/the-trump-war-on-public-schools.html?_r=0')
